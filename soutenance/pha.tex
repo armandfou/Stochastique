@@ -13,6 +13,8 @@
 % Déclartion des commandes
 \newcommand{\reels}{\mathbb{R}}
 \newcommand{\integers}{\mathbb{Z}}
+\newcommand{\Lagr}{\mathcal{L}}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
 
 \usetheme{Warsaw}
 
@@ -68,14 +70,14 @@
     
     \begin{frame}
         \frametitle{Approches/Méthodes Etudiées}
-        Si on relaxe l'ensemble des contraintes de nonaticipativité noté ici $N$, On peut convertir le problème P en problème convexe.
+        Si on relaxe l'ensemble des contraintes de nonaticipativité noté ici $\mathcal{N}$, On peut convertir le problème P en problème convexe.
     \end{frame}
     
     \begin{frame}
         \frametitle{Approches/Méthodes Etudiées}
-        Accordingly, letting $Y$\\ % Y cursive
+        Accordingly, letting $\mathcal{Y}$\\ % Y cursive
         represent the set of feasible dual multipliers, the ordinary Lagrangian, achieved through the dualization
-of the constraint $X - X = 0$.
+of the constraint $X - \hat{X} = 0$.
     \end{frame}
     
     
@@ -88,12 +90,30 @@ of the constraint $X - X = 0$.
     
     \begin{frame}
         \frametitle{Approches/Méthodes Etudiées}
+        On interprète l'équation (1) comme une extention du Lagrangien $\Lagr(X, \hat{X}, \Lambda)$.\\
+        L'equation (1)\\
+        Avec $\norm{x_s - \hat{x}_s}^{2}_{2}$ qui permet une meilleur prise de décision,\\
+       $\norm{\lambda_s - \lambda^{k-1}_{s}}^{2}_{2}$ avec k, un itération de l'algorithme PH,\\
+        et $\rho$, une constante positive qui accumule l'impacte des deux précédentes quantités, au fil des itérations de l'algorithme PH.
     \end{frame}
+    
+    \begin{frame}
+        \frametitle{Approches/Méthodes Etudiées}
+        L'algorithme PH règle certains problèmes de séparabilités due à la présence des termes $\hat{x}_s$
+    \end{frame}
+    
+    \begin{frame}
+        \frametitle{Approches/Méthodes Etudiées}
+        Les optimisations peuvent être faites pour chaque scénario indépendant, au regard de chaque variable $(X, \hat{X}, \Lambda)$
+    \end{frame}
+    
+    
     
     \begin{frame}
         \frametitle{Approches/Méthodes Etudiées}
         
     \end{frame}
+    
     
     \begin{frame}
         \frametitle{Master-Worker Parallel with Barrier}            
