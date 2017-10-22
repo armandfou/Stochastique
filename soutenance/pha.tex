@@ -32,49 +32,57 @@
         % Une page de présentation
     \end{frame}
 
-    
+    \begin{section}{Problématique}
         \begin{frame}
-        \frametitle{Problématique}
+        \frametitle{But de l'article}
         % Présenter le but de l'article
         Cette article a pour but de de combler le vide littéraire concernant une famille de programmes stochastique: Stochastic Mixed-Integer Convexe Programs.
     \end{frame}
         
     \begin{frame}
-        \frametitle{Problématique}
+        \frametitle{But de l'article}
         Toutes les décisions prises pour chaques scénarios à l'instant $t-1$ sont prises en compte à l'instant $t$. La fonction d'association $X(\xi_s) = x_s$ implique que $x_s$ dépend des variables aléatoires de la distribution $\xi$.
     \end{frame}
     
     
     \begin{frame}
-        \title{Problématique}
+        \frametitle{But de l'article}
         La prise de décision se fait suivant des scénarios des sous problèmes de la forme : 
          $f(x_s, \;\xi_{s}) = min \;\{f_s(x_s) \; | \; x_s \in C_s, \,x_s \in \reels^{n_r} \times \integers^{n_z}\}$\\
          Avec $n = n_r + n_z$, la taille du vecteur $x_s$
-    \end{frame}
-    
+    \end{frame}    
     
     \begin{frame}
-        \frametitle{Problématique}
-                
+        \frametitle{But de l'article}               
     \end{frame}
-        
+    \end{section}
+    
+    \begin{section}{Etat de l'art}
     \begin{frame}
         \frametitle{Etat de l'art}
         %Présenter la methode PHA
         L'algorithme Progressive Hedging (Haies progressive) a été inventer en 1991 par R. Rockafellar et West, 
     \end{frame}
+    
+    \begin{frame}
+        \frametitle{Etat de l'art}
+        %Présenter la methode PHA
+        L'algorithme Progressive Hedging (Haies progressive) a été inventer en 1991 par R. Rockafellar et West, 
+    \end{frame}
+    \end{section}
         
+    \begin{section}{Approches/Méthodes Etudiées}
     \begin{frame}
         \frametitle{Approches/Méthodes Etudiées}
     \end{frame}
     
     \begin{frame}
-        \frametitle{Approches/Méthodes Etudiées}
+        %\frametitle{Approches/Méthodes Etudiées}
         Si on relaxe l'ensemble des contraintes de nonaticipativité noté ici $\mathcal{N}$, On peut convertir le problème P en problème convexe.
     \end{frame}
     
     \begin{frame}
-        \frametitle{Approches/Méthodes Etudiées}
+        %\frametitle{Approches/Méthodes Etudiées}
         Accordingly, letting $\mathcal{Y}$\\ % Y cursive
         represent the set of feasible dual multipliers, the ordinary Lagrangian, achieved through the dualization
 of the constraint $X - \hat{X} = 0$.
@@ -82,14 +90,14 @@ of the constraint $X - \hat{X} = 0$.
     
     
     \begin{frame}
-        \frametitle{Approches/Méthodes Etudiées}
+        %\frametitle{Approches/Méthodes Etudiées}
         On introduit des multiplicateurs Lagrangiens $\lambda_s \, \forall s = 1 \ldots S$\\
         En multipliant ces multiplicateurs par les probabilités $p_s$ pour chaque scénario s, on obtient $p_s\lambda_s$. Ces valeurs doivent être interpretées comme les multiplicateurs duals des contraintes de nonanticipativité accocié au scénario s.\\
         La somme de tous les coefficients $p_s\cdot\lambda_s = 0$
     \end{frame}
     
     \begin{frame}
-        \frametitle{Approches/Méthodes Etudiées}
+        %\frametitle{Approches/Méthodes Etudiées}
         On interprète l'équation (1) comme une extention du Lagrangien $\Lagr(X, \hat{X}, \Lambda)$.\\
         L'equation (1)\\
         Avec les termes:\\
@@ -99,27 +107,25 @@ of the constraint $X - \hat{X} = 0$.
     \end{frame}
     
     \begin{frame}
-        \frametitle{Approches/Méthodes Etudiées}
+        %\frametitle{Approches/Méthodes Etudiées}
         L'algorithme PH règle certains problèmes de séparabilités due à la présence des termes $\hat{x}_s$
     \end{frame}
     
     \begin{frame}
-        \frametitle{Approches/Méthodes Etudiées}
+        %\frametitle{Approches/Méthodes Etudiées}
         Les optimisations peuvent être faites pour chaque scénario indépendant, au regard de chaque variable $(X, \hat{X}, \Lambda)$
     \end{frame}
     
     
-    \begin{section}{Approches/Méthodes Etudiées}
+    
     \begin{frame}
-        \frametitle{Approches/Méthodes Etudiées}
-        \framesubtitle{Description de l'algorithme Progressive hedging}
+        \frametitle{Progressive hedging}
         On instaure $\hat{x}^0$ en tant que minimum de la fonction objective $f(x_s, \; \Xi_s)$. Cela leur permet d'obtenir une borne inférieure.
         
     \end{frame}
     
     \begin{frame}
-        \frametitle{Approches/Méthodes Etudiées}
-        \framesubtitle{Description de l'algorithme Progressive hedging}
+        \frametitle{Description de l'algorithme Progressive hedging}
          Ici mettre le code de l'algo.
         
             %\begin{algo1}
@@ -130,13 +136,16 @@ of the constraint $X - \hat{X} = 0$.
     
     
     \begin{frame}
-        \frametitle{Master-Worker Parallel with Barrier}            
+        \frametitle{}            
     \end{frame}
         
+    \begin{section}{Résultats}
     \begin{frame}
-        \frametitle{Résultat}
+    
     \end{frame}
-        
+    \end{section}
+    
+    
     \begin{frame}
         \frametitle{Conclusion/Perspective}
     \end{frame}
