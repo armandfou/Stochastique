@@ -8,6 +8,7 @@
 \usepackage{latexsym}
 \usepackage{graphicx}
 \usepackage{ucs}
+\usepackage{mathrsfs}
 
 
 % Déclartion des commandes
@@ -72,9 +73,6 @@
     \end{section}
         
     \begin{section}{Approches/Méthodes Etudiées}
-    \begin{frame}
-        \frametitle{Approches/Méthodes Etudiées}
-    \end{frame}
     
     \begin{frame}
         %\frametitle{Approches/Méthodes Etudiées}
@@ -99,7 +97,9 @@ of the constraint $X - \hat{X} = 0$.
     \begin{frame}
         %\frametitle{Approches/Méthodes Etudiées}
         On interprète l'équation (1) comme une extention du Lagrangien $\Lagr(X, \hat{X}, \Lambda)$.\\
-        L'equation (1)\\
+        %\begin{equation}
+            
+        %\end{equation}
         Avec les termes:\\
         $\norm{x_s - \hat{x}_s}^{2}_{2}$ qui permet une meilleur prise de décision,\\
         $\norm{\lambda_s - \lambda^{k-1}_{s}}^{2}_{2}$ avec k, un itération de l'algorithme PH,\\
@@ -131,6 +131,18 @@ of the constraint $X - \hat{X} = 0$.
             %\begin{algo1}
             %\end{algo1}
         
+    \end{frame}
+    
+    \begin{frame}
+       L'heuristque PH peut trouver des valerus qui ne respecte pas les contraintes de nonanticipativité, alors que l'algorithme PH-BAB écarte les solutions ne respectant pas ses dernières.\\
+       Pour chaque nouveaux noeuds crées, $\sigma^+,\;\sigma^-$ on garde la même contrainte de réalisabilité : $\mathrm{Q}^\sigma = \mathrm{Q}^{\sigma^+} = \mathrm{Q}^{\sigma^-}$
+    \end{frame}
+    
+    \begin{frame}
+      Les meilleurs solvers du marché peuvent détecter la consistance de $C_s^\sigma$ c'est à dire calculer en temps fini 
+      $\mathcal{N}\cap(\times_{s = 1}^s C_s^\sigma)$ pour déterminer la réalisabilité de chaque relaxations de la fonction objective $z(\sigma)$
+      
+      Avec $C_s^\sigma \Leftrightarrow C_s \cap Q_s^\sigma$ : l'ensemble des $x_s$ réalisables pour chaque scénario individuel.
     \end{frame}
     \end{section}
     
