@@ -46,7 +46,7 @@
     \begin{frame}
         \title{Problématique}
         La prise de décision se fait suivant des scénarios des sous problèmes de la forme : 
-         $f(x_s, \xi_{s}) = min \{f_s(x_s)\} | x_s \in C_s, x_s \in \reels^{n_r} \times \integers^{n_z}$\\
+         $f(x_s, \;\xi_{s}) = min \;\{f_s(x_s) \; | \; x_s \in C_s, \,x_s \in \reels^{n_r} \times \integers^{n_z}\}$\\
          Avec $n = n_r + n_z$, la taille du vecteur $x_s$
     \end{frame}
     
@@ -81,11 +81,18 @@ of the constraint $X - X = 0$.
     
     \begin{frame}
         \frametitle{Approches/Méthodes Etudiées}
-        On introduit des multiplicateurs Lagrangiens $\lambda_s \forall s = 1 \ldots S$
+        On introduit des multiplicateurs Lagrangiens $\lambda_s \, \forall s = 1 \ldots S$\\
+        En multipliant ces multiplicateurs par les probabilités $p_s$ pour chaque scénario s, on obtient $p_s\lambda_s$. Ces valeurs doivent être interpretées comme les multiplicateurs duals des contraintes de nonanticipativité accocié au scénario s.\\
+        La somme de tous les coefficients $p_s\cdot\lambda_s = 0$
     \end{frame}
     
     \begin{frame}
         \frametitle{Approches/Méthodes Etudiées}
+    \end{frame}
+    
+    \begin{frame}
+        \frametitle{Approches/Méthodes Etudiées}
+        
     \end{frame}
     
     \begin{frame}
