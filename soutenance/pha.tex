@@ -1,29 +1,56 @@
-\documentclass{beamer}
+\documentclass[10pt]{beamer}
 
 \usepackage[frenchb]{babel}
+% \usepackage[latin1]{inputenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{latexsym}
+\usepackage{graphicx}
+\usepackage{ucs}
 
-\usepackage[T1]{fontenc}
 
-\usepackage[latin1]{inputenc}
-
+% Déclartion des commandes
+\newcommand{\reels}{\mathbb{R}}
+\newcommand{\integers}{\mathbb{Z}}
 
 \usetheme{Warsaw}
 
-% Debut - Rédaction du diaporama
+\title{Description d'article}
+% \subtitle{A Progressive Hedging Based Branch-and-Bound Algorithm for Stochastic Mixed-Integer Programs}
+\author{Armand Fouquiau, Romany Stéphane}
+\institute{Université Paris-Sud}
+\date{Octobre 2017}
 
+% Debut - Rédaction du diaporama
 \begin{document}
 
     \begin{frame}
-        \frametitle{}
+    \titlepage
         % Une page de présentation
     \end{frame}
 
-    \begin{frame}
+    
+        \begin{frame}
         \frametitle{Problématique}
         % Présenter le but de l'article
-        Cette article a pour but de de combler le vide littéraire concernant une famille de programs stochastique: Stochastic Mixed-Integer Convexe Programs.
+        Cette article a pour but de de combler le vide littéraire concernant une famille de programmes stochastique: Stochastic Mixed-Integer Convexe Programs.
     \end{frame}
         
+    \begin{frame}
+        \frametitle{Problématique}
+        Toutes les décisions prises pour chaques scénarios à l'instant $t-1$ sont prises en compte à l'instant $t$. La fonction d'association $X(\xi_s) = x_s$ implique que $x_s$ dépend des variables aléatoires de la distribution $\xi$.
+    \end{frame}
+    
+    
+    \begin{frame}
+        \title{Problématique}
+        La prise de décision se fait suivant des scénarios des sous problèmes de la forme : 
+         $f(x_s, \xi_{s}) = min \{f_s(x_s)\} | x_s \in C_s, x_s \in \reels^{n_r} \times \integers^{n_z}$\\
+         Avec $n = n_r + n_z$, la taille du vecteur $x_s$
+    \end{frame}
+    
+    \iffalse
     \begin{frame}
         \frametitle{Problématique}
         %Présenter la methode PHA
@@ -51,8 +78,8 @@
         \frametitle{Conclusion/Perspective}
     \end{frame}
 
+    \fi
     % Fin de cette page de présentation
-
 
 \end{document}
 
