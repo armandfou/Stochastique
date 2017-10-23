@@ -134,22 +134,38 @@ of the constraint $X - \hat{X} = 0$.
     \end{frame}
     
     \begin{frame}
-       L'heuristque PH peut trouver des valerus qui ne respecte pas les contraintes de nonanticipativité, alors que l'algorithme PH-BAB écarte les solutions ne respectant pas ses dernières.\\
+       L'algorithme de base PH heuristique peut trouver des valeurs qui ne respectent pas les contraintes de nonanticipativité, alors que l'algorithme PH-BAB écarte les solutions ne respectant pas ses dernières.\\
        Pour chaque nouveaux noeuds crées, $\sigma^+,\;\sigma^-$ on garde la même contrainte de réalisabilité : $\mathrm{Q}^\sigma = \mathrm{Q}^{\sigma^+} = \mathrm{Q}^{\sigma^-}$
     \end{frame}
     
     \begin{frame}
       Les meilleurs solvers du marché peuvent détecter la consistance de $C_s^\sigma$ c'est à dire calculer en temps fini 
-      $\mathcal{N}\cap(\times_{s = 1}^s C_s^\sigma)$ pour déterminer la réalisabilité de chaque relaxations de la fonction objective $z(\sigma)$
+      $\mathcal{N}\cap(\times_{s = 1}^S C_s^\sigma)$ pour déterminer la réalisabilité de chaque relaxations de la fonction objective $z(\sigma)$
       
       Avec $C_s^\sigma \Leftrightarrow C_s \cap Q_s^\sigma$ : l'ensemble des $x_s$ réalisables pour chaque scénario individuel.
     \end{frame}
     \end{section}
     
+    \begin{section}{PH Branch and Bound}
+    \begin{frame}
+        \frametitle{Cas des programmes stochastiques à 2 niveaux}
+        
+    \end{frame}
     
     \begin{frame}
-        \frametitle{}            
+        La partie intéressante est de considérer que les programmes stochastiques Mixed-integer convexes ne contiennent que des variables binaires au premier niveau. C'est à dire que les vecteurs $x_s$ du premier niveaux sont de la forme $x_1 = (0, 1, 1, 0 \ldots)$.
+        
     \end{frame}
+    \begin{frame}
+        $\mathcal{N}$ n'est pas significatif pour le deuxieme niveau. On peut construire les conditions de nonanticipativité en se basant sur les solutions du premier niveau, pour chaque scénario seul.
+        
+    \end{frame}
+    
+    \begin{frame}
+        En général, quand on décompose un scénario, l'algorithme PH-BAB peut s'arréter sur des noeuds où les conditions de nonanticipativité $\mathcal{N}$
+        
+    \end{frame}
+    \end{section}
         
     \begin{section}{Résultats}
     \begin{frame}
