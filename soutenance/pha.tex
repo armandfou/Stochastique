@@ -33,7 +33,8 @@
         % Une page de présentation
     \end{frame}
 
-    \begin{section}{Problématique}
+    \section{Problématique}
+    \subsection{But de l'article}
         \begin{frame}
         \frametitle{But de l'article}
         % Présenter le but de l'article
@@ -41,46 +42,37 @@
     \end{frame}
         
     \begin{frame}
-        \frametitle{But de l'article}
         Toutes les décisions prises pour chaques scénarios à l'instant $t-1$ sont prises en compte à l'instant $t$. La fonction d'association $X(\xi_s) = x_s$ implique que $x_s$ dépend des variables aléatoires de la distribution $\xi$.
     \end{frame}
     
     
     \begin{frame}
-        \frametitle{But de l'article}
         La prise de décision se fait suivant des scénarios des sous problèmes de la forme : 
          $f(x_s, \;\xi_{s}) = min \;\{f_s(x_s) \; | \; x_s \in C_s, \,x_s \in \reels^{n_r} \times \integers^{n_z}\}$\\
          Avec $n = n_r + n_z$, la taille du vecteur $x_s$
     \end{frame}    
     
-    \begin{frame}
-        \frametitle{But de l'article}               
-    \end{frame}
-    \end{section}
     
-    \begin{section}{Etat de l'art}
+    \section{Etat de l'art}
+    \subsection{Etat de l'art}
     \begin{frame}
-        \frametitle{Etat de l'art}
         %Présenter la methode PHA
         L'algorithme Progressive Hedging (Haies progressive) a été inventer en 1991 par R. Rockafellar et West, 
     \end{frame}
     
     \begin{frame}
-        \frametitle{Etat de l'art}
         %Présenter la methode PHA
         L'algorithme Progressive Hedging (Haies progressive) a été inventer en 1991 par R. Rockafellar et West, 
     \end{frame}
-    \end{section}
         
-    \begin{section}{Approches/Méthodes Etudiées}
-    
+    \section{Approches/Méthodes Etudiées}
+    \subsection{Généralités}
     \begin{frame}
         \frametitle{Généralités}
         Si on relaxe l'ensemble des contraintes de nonaticipativité noté ici $\mathcal{N}$, On peut convertir le problème P en problème convexe.
     \end{frame}
     
     \begin{frame}
-        \frametitle{Généralités}
         Accordingly, letting $\mathcal{Y}$\\ % Y cursive
         represent the set of feasible dual multipliers, the ordinary Lagrangian, achieved through the dualization
 of the constraint $X - \hat{X} = 0$.
@@ -88,14 +80,12 @@ of the constraint $X - \hat{X} = 0$.
     
     
     \begin{frame}
-        \frametitle{Généralités}
         On introduit des multiplicateurs Lagrangiens $\lambda_s \, \forall s = 1 \ldots S$\\
         En multipliant ces multiplicateurs par les probabilités $p_s$ pour chaque scénario s, on obtient $p_s\lambda_s$. Ces valeurs doivent être interpretées comme les multiplicateurs duals des contraintes de nonanticipativité accocié au scénario s.\\
         La somme de tous les coefficients $p_s\cdot\lambda_s = 0$
     \end{frame}
     
     \begin{frame}
-        \frametitle{Généralités}
         On interprète l'équation (1) comme une extention du Lagrangien $\Lagr(X, \hat{X}, \Lambda)$.\\
         %\begin{equation}
             
@@ -107,30 +97,25 @@ of the constraint $X - \hat{X} = 0$.
     \end{frame}
     
     \begin{frame}
-        \frametitle{Généralité}
         L'algorithme PH règle certains problèmes de séparabilités due à la présence des termes $\hat{x}_s$
     \end{frame}
     
     \begin{frame}
-        %\frametitle{Approches/Méthodes Etudiées}
         Les optimisations peuvent être faites pour chaque scénario indépendant, au regard de chaque variable $(X, \hat{X}, \Lambda)$
     \end{frame}
     
     
     
+    \subsection{Progressive Hegdging}  
     \begin{frame}
         \frametitle{Progressive hedging}
         On instaure $\hat{x}^0$ en tant que minimum de la fonction objective $f(x_s, \; \Xi_s)$. Cela leur permet d'obtenir une borne inférieure.
-        
     \end{frame}
     
     \begin{frame}
-        \frametitle{Progressive hedging}
          Ici mettre le code de l'algo.
-        
             %\begin{algo1}
             %\end{algo1}
-        
     \end{frame}
     
     \begin{frame}
@@ -144,38 +129,55 @@ of the constraint $X - \hat{X} = 0$.
       
       Avec $C_s^\sigma \Leftrightarrow C_s \cap Q_s^\sigma$ : l'ensemble des $x_s$ réalisables pour chaque scénario individuel.
     \end{frame}
-    \end{section}
     
-    \begin{section}{PH Branch and Bound}
+    \subsection{PH Branch-and-Bound}
     \begin{frame}
-        \frametitle{Cas des programmes stochastiques à 2 niveaux}
-        
+        \frametitle{Branch-and-Bounds}
+        \framesubtitle{Cas des programmes stochastiques à deux niveaux}
     \end{frame}
     
     \begin{frame}
         La partie intéressante est de considérer que les programmes stochastiques Mixed-integer convexes ne contiennent que des variables binaires au premier niveau. C'est à dire que les vecteurs $x_s$ du premier niveaux sont de la forme $x_1 = (0, 1, 1, 0 \ldots)$.
-        
     \end{frame}
+    
     \begin{frame}
         $\mathcal{N}$ n'est pas significatif pour le deuxieme niveau. On peut construire les conditions de nonanticipativité en se basant sur les solutions du premier niveau, pour chaque scénario seul.
         
     \end{frame}
     
     \begin{frame}
-        En général, quand on décompose un scénario, l'algorithme PH-BAB peut s'arréter sur des noeuds où les conditions de nonanticipativité $\mathcal{N}$
-        
+        En général, quand on décompose un scénario, l'algorithme PH-BAB peut s'arréter sur des noeuds où les conditions de nonanticipativité $\mathcal{N}$ sont garanties. 
     \end{frame}
-    \end{section}
         
-    \begin{section}{Résultats}
+    \section{Résultats}
+    \subsection{Evaluations}
     \begin{frame}
-    
+        \frametitle{Calcul des performances}
+        Pour tester leurs algorithmes, l'équipe utilise les ressources de serveurs dit SSLP (benchmarks pour solvers) contenant les données nécessaires pour l'exécution des programmes. Elle se base sur des problèmes linéaire et quadratique.
+        
+        On utilise la notation SSLP n.m.S qui signifie qu'on propose un problemes linéaire à $n$ variables binaires au premier et deuxième niveau et $n \times m$ variables binaires au deuxieme niveau. S est le nombre de scénario.
+        La notation SSLPQ n.m.S indique que les problèmes sont quadratiques.
     \end{frame}
-    \end{section}
-    
     
     \begin{frame}
-        \frametitle{Conclusion/Perspective}
+        Test sur quatre algorithme:\\
+        \begin{itemize}
+            \item PH heuristique (La version de base de Rockafellar and West seule).
+            \item PH-BAB (Décrit dans l'algorithme 5).
+            \item PH-BAB-Apx (Un version approximative de la précédente).
+            \item CPLEX (Un solveur du constructeur IBM).
+        \end{itemize}
+    \end{frame}
+    
+    \begin{frame}
+
+    \end{frame}
+    
+    \section{Conclusion}
+    \subsection{Conclusion}
+    \begin{frame}
+        \frametitle{Conclusion}
+        
     \end{frame}
     
     \iffalse
