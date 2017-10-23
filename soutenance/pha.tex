@@ -9,16 +9,13 @@
 \usepackage{graphicx}
 \usepackage{ucs}
 \usepackage{mathrsfs}
-\usepackage{algorithm2e}
+
 
 % Déclartion des commandes
 \newcommand{\reels}{\mathbb{R}}
 \newcommand{\integers}{\mathbb{Z}}
 \newcommand{\Lagr}{\mathcal{L}}
 \newcommand\norm[1]{\left\lVert#1\right\rVert}
-\newcommand{\Hcur}{\mathcal{H}}
-\newcommand{\Ncur}{\mathcal{N}}
-\newcommand{\Ycur}{\mathcal{Y}}
 
 \usetheme{Warsaw}
 
@@ -129,7 +126,7 @@ of the constraint $X - \hat{X} = 0$.
     \begin{frame}
       Les meilleurs solvers du marché peuvent détecter la consistance de $C_s^\sigma$ c'est à dire calculer en temps fini 
       $\mathcal{N}\cap(\times_{s = 1}^S C_s^\sigma)$ pour déterminer la réalisabilité de chaque relaxations de la fonction objective $z(\sigma)$
-      
+      \
       Avec $C_s^\sigma \Leftrightarrow C_s \cap Q_s^\sigma$ : l'ensemble des $x_s$ réalisables pour chaque scénario individuel.
     \end{frame}
     
@@ -137,6 +134,12 @@ of the constraint $X - \hat{X} = 0$.
     \begin{frame}
         \frametitle{Branch-and-Bounds}
         \framesubtitle{Cas des programmes stochastiques à deux niveaux}
+        Les contraintes de non anticipativité ne sont pas significatives pour le $2\ieme{}$ stage\\
+        La politique des contraintes de non-anticipativité peuvent être construites avec l'espérance des décisions du $1\ier{}$ stage $x_{s1}$\\
+        Le résultat de cette espérance est $\bar{x}$\\
+        $\mathcal{N}=\left\{\left(x_{11}...x_{\mathcal{S}1}\right) \in \times_{s=1}^{\mathcal{S}}\reels^{n^{1}}|x_{s1}=\bar{x}, \forall s = 1...\mathcal{S}\right\}$\\
+        $\mathcal{C}_{s2} \subseteq \reels^{n^{1}+n^{2}}$ est un espace convexe\\
+        $f_{s}\left(x_{s}\right)=f_{1}\left(x_{s1}\right)+\underset{x_{s2}}{\mathrm{min}}\left\{f_{s2}\right(x_{s2}\left)| \left(x_{s1},x_{s2}\right) \in \mathcal{C}_{s2},\left(x_{s1},x_{s2}\right) \in _reels^{n^{1}}\times\left(\reels^{n^{2}_{r}} \time \mathbb{R}^{n^{2}_{r}}\right)$
     \end{frame}
     
     \begin{frame}
@@ -145,12 +148,17 @@ of the constraint $X - \hat{X} = 0$.
     
     \begin{frame}
         $\mathcal{N}$ n'est pas significatif pour le deuxieme niveau. On peut construire les conditions de nonanticipativité en se basant sur les solutions du premier niveau, pour chaque scénario seul.
+        
     \end{frame}
     
     \begin{frame}
         En général, quand on décompose un scénario, l'algorithme PH-BAB peut s'arréter sur des noeuds où les conditions de nonanticipativité $\mathcal{N}$ sont garanties. 
     \end{frame}
-        
+    \subsection{PH Branch-and-Bound pour les programmes stochastiques à deux niveaux}
+  %  \begin{frame} 
+  %    \frametitle{}
+    
+      %$\mathcal{N}$ = $\left\{ \left( x_{11}...x_{\mathcal{S}1} \in \times_{s=1}^{\mathcal{S}}\Re^{n^{1}}$
     \section{Résultats}
     \subsection{Evaluations}
     \begin{frame}
@@ -185,76 +193,7 @@ of the constraint $X - \hat{X} = 0$.
     \iffalse
     \fi
     % Fin de cette page de présentation
-    
-    \begin{frame}
-    \begin{algorithm}[H]
-    \caption{A PH-BAB Algorithm for 2-Stage SMICPs with Pure Binary First-Stage Variables}
-    \DontPrintSemicolon
-    \SetAlgoLined
-    \emp{Initialization}: Create root node $o$, let\mathcal{H}\Leftarrow \{$o$\}. Set $z_U = +\infty, z_L = -\infty, \hat{X}_U = NULL $\;
-        \While{\mathcal{H} \neq \emptyset}{
-            Pick node from $\Hcur$ and let $\Hcur\leftarrow\Hcur\setminus \{\sigma\}$\;
-            Invoke Algorithm 4 to process $\sigma$ \;
-            \eIf{$\sigma$ is fesible}{
-                Get a solution $\hat{X}^\sigma$ of $\sigma$ and a lower bound $z_L(\sigma)$.\;
-                \eIf{}{
-                    \uIf{$\hat{X}^\sigma$ has a fractional first-stage solution}{
-                        Pick a fractional first-stage componenent $\overline{x}_j^\sigma$ of $\hat{X}^\sigma$\;
-                        Create nodes $\sigma^+$ and $\sigma^-$. Let $\mathrm{Q}^\sigma = \mathrm{Q}^{\sigma^+} = \mathrm{Q}^{\sigma^-}$ while introducing the additional restrictions $l_{stj} = \hat{x}_{stj}^\sigma, \forall s \in F \subseteq \Fcur_t$  to $\mathrm{Q}^{\sigma^+}$ and $u_{stj} = \hat{x}_{stj}^\sigma, \forall s \in F \subseteq \Fcur_t$ to $\mathrm{Q}^{\sigma^-}$\;
-                        Let $\Hcur\leftarrow\Hcur\cup \{\sigma^-, \sigma^+\}$.\;
-                    }uElseif{$\hat{X}^\sigma$ as fractional second-stage solution}{
-                        Create node $\sigma^f$ according to (9) and $\sigma^\lnot$ according to (11).\;
-                        Let $\Hcur\leftarrow\Hcur\cup \{\sigma^f, \sigma^\lnot\}$.\;
-                    }uElse{
-                        Obtain an upper bound $z_U(\sigma)$ and the corresponding solution $\hat{X}_U^\sigma$.\;
-                        \eIf{$z_U(\sigma) \lt z_U$}{
-                            Let $\hat{X}_U = \hat{X}_U^\sigma, z_U = z_U (\sigma)$.\;
-                            Fathom: $\Hcur\leftarrow\Hcur\setminus{\sigma^' | z_L(\sigma^') \ge z_U}$\;
-                        }
-                        Let $\Hcur\leftarrow\Hcur\cup \{\sigma}$.\;
-                    }
-                }
-            }
-            Let $z_L = min \{ z_L(\sigma)| \sigma \in \Hcur\}$
-        }
-\end{algorithm}
-    \end{frame}
-    
-    
-        \begin{frame}
-    \begin{algorithm}[H]
-    \caption{A Basic PH-BAB Algorithms}
-    \DontPrintSemicolon
-    \SetAlgoLined
-    \emp{Initialization}: Create root node $o$, let\mathcal{H}\Leftarrow \{$o$\}. Set $z_U = +\infty, z_L = -\infty, \hat{X}_U = NULL $\;
-        \While{\mathcal{H} \neq \emptyset}{
-            Pick node from $\Hcur$ and let $\Hcur\leftarrow\Hcur\setminus \{\sigma\}$\;
-            Determine the feasiblity of $\sigma$\;
-            \eIf{$\sigma$ is feasible}{
-                Invoke PH algorithme to solve $\sigma$\;
-                Get a solution $\hat{X}^\sigma$ of $\sigma$ and its optimal objective value $z(\sigma)$.\;
-                \eIf{$z(\sigma) \lt z_U$}{
-                    \uIf{$\hat{X}^\sigma$ is fractional}{
-                        Pick a fractional component \hat{x}_{stj}^\sigma of \hat{X}^\sigma\;
-                        Create nodes $\sigma^+$ and $\sigma^-$. Let $\mathrm{Q}^\sigma = \mathrm{Q}^{\sigma^+} = \mathrm{Q}^{\sigma^-}$ while introducing the additional restrictions $l_{stj} = \lceil\hat{x}_{stj}^\sigma\rceil, \forall s \in F \subseteq \Fcur_t$  to $\mathrm{Q}^{\sigma^+}$ and $u_{stj} = \lfloor\hat{x}_{stj}^\sigma\rfloor, \forall s \in F \subseteq \Fcur_t$ to $\mathrm{Q}^{\sigma^-}$\;
-                        Let $\Hcur\leftarrow\Hcur\cup \{\sigma^-, \sigma^+\}$.\;
-                    }uElseif{$\hat{X}^\sigma$ as fractional second-stage solution}{
-                        Create node $\sigma^f$ according to (9) and $\sigma^\lnot$ according to (11).\;
-                        Let $\Hcur\leftarrow\Hcur\cup \{\sigma^f, \sigma^\lnot\}$.\;
-                    }uElse{
-                        Obtain an upper bound $z_U(\sigma)$ and the corresponding solution $\hat{X}_U^\sigma$.\;
-                        \eIf{$z_U(\sigma) \lt z_U$}{
-                            Let $\hat{X}_U = \hat{X}_U^\sigma, z_U = z_U (\sigma)$.\;
-                            Fathom: $\Hcur\leftarrow\Hcur\setminus{\sigma^' | z_L(\sigma^') \ge z_U}$\;
-                        }
-                        Let $\Hcur\leftarrow\Hcur\cup \{\sigma}$.\;
-                    }
-                }
-            }
-            Let $z_L = min \{ z_L(\sigma)| \sigma \in \Hcur\}$
-        }
-\end{algorithm}
-    \end{frame}
+
 \end{document}
 
 % Fin - Rédaction du diaporama
